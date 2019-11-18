@@ -21,6 +21,13 @@ var containerJson = '''
   "type": "Container",
   "color": "#FF00FF",
   "alignment": "center",
+  "decoration" : {
+    "image" : {
+      "type": "AssetImage",
+      "name": "assets/vip.png",
+      "boxFit" : "fill"
+    }
+  },
   "child": {
     "type": "Text",
     "data": "Flutter dynamic widget",

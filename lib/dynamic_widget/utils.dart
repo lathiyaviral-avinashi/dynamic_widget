@@ -276,7 +276,10 @@ BoxDecoration parseBoxDecoration(Map<String, dynamic> map) {
       if ((map['image']['type']) != null &&
           (map['image']['type']) == 'AssetImage') {
         if (map['image']['name'] != null) {
-          decorationImage = DecorationImage(image: AssetImage(map['image']['name']));
+          decorationImage = DecorationImage(
+            image: AssetImage(map['image']['name']),
+            fit: map['image']['boxFit'] != null ? parseBoxFit(map['image']['boxFit']) : BoxFit.cover,
+          );
         }
       } else if ((map['image']['type']) != null &&
           (map['image']['type']) == 'NetworkImage') {
