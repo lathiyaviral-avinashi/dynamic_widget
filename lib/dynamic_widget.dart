@@ -2,6 +2,7 @@ library dynamic_widget;
 
 import 'package:dynamic_widget/dynamic_widget/basic/align_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/aspectratio_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/basic/background_data_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/baseline_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/button_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/center_widget_parser.dart';
@@ -17,6 +18,7 @@ import 'package:dynamic_widget/dynamic_widget/basic/row_column_widget_parser.dar
 import 'package:dynamic_widget/dynamic_widget/basic/safearea_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/sizedbox_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/stack_positioned_widgets_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/basic/text_style_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/text_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/wrap_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/scrolling/gridview_widget_parser.dart';
@@ -58,7 +60,9 @@ class DynamicWidgetBuilder {
     OpacityWidgetParser(),
     WrapWidgetParser(),
     ClipRRectWidgetParser(),
-    SafeAreaWidgetParser()
+    SafeAreaWidgetParser(),
+    BackGroundDataParser(),
+    TextStyleParser()
   ];
 
   // use this method for adding your custom widget parser

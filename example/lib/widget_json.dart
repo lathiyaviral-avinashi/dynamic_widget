@@ -1,43 +1,23 @@
-// "decoration": {
-//       "gradient": {
-//         "type": "LinearGradient",
-//         "gradientData" : {
-//           "colors" : [
-//         "#4776E7",
-//         "#8FA6DE"
-//       ],
-//       "begin": "topLeft",
-//       "end": "bottomRight",
-//       "stops": [
-//         0.3,
-//         1
-//       ]
-//         }
-//       }
-//     },
-
 var containerJson = '''
 {
-  "type": "Container",
+  "type": "background",
   "color": "#FF00FF",
   "alignment": "center",
-  "decoration" : {
-    "image" : {
-      "type": "AssetImage",
-      "name": "assets/vip.png",
-      "boxFit" : "fill"
+    "gradient" : {
+      "gradientType": "LinearGradient",
+        "gradientData" : {
+          "colors" : [
+        "#4776E7",
+        "#8FA6DE"
+      ],
+      "begin": "topLeft",
+      "end": "bottomRight",
+      "stops": [
+        0.3,
+        1
+      ]
+        }
     }
-  },
-  "child": {
-    "type": "Text",
-    "data": "Flutter dynamic widget",
-    "maxLines": 3,
-    "overflow": "ellipsis",
-    "style": {
-      "color": "#00FFFF",
-      "fontSize": 20.0
-    }
-  }
 }
 
 ''';

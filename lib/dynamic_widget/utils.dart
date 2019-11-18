@@ -306,7 +306,7 @@ BoxDecoration parseBoxDecoration(Map<String, dynamic> map) {
       }
 
       if (map.containsKey('gradient')) {
-        if (map['gradient']['type'] != null && map['gradient']['type'] == 'LinearGradient') {
+        if (map['gradient']['gradientType'] != null && map['gradient']['gradientType'] == 'LinearGradient') {
           gradient = LinearGradient(
               colors: map.containsKey(map['gradient']['gradientData']['colors'])
                   ? _getColorsFromString(map['gradient']['gradientData']['colors'])
