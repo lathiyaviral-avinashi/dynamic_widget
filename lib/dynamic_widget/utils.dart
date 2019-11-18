@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter/widgets.dart';
 
 TextAlign parseTextAlign(String textAlignString) {
@@ -252,6 +254,86 @@ BoxConstraints parseBoxConstraints(Map<String, dynamic> map) {
     minHeight: minHeight,
     maxHeight: maxHeight,
   );
+}
+
+List<Color> _getColorsFromString(List<String> stringColors) {
+  List<Color> colors = [];
+  stringColors.forEach((stringColor) {
+    final Color color = parseHexColor(stringColor);
+    colors.add(color);
+  });
+  return colors;
+}
+
+BoxDecoration parseBoxDecoration(Map<String, dynamic> map) {
+  DecorationImage decorationImage;
+  BoxShape boxShape = BoxShape.circle;
+  Color color = Colors.grey[200];
+  prefix0.Gradient gradient;
+
+  if (map != null) {
+    if (map.containsKey('image')) {
+      if ((map['image']['type']) != null &&
+          (map['image']['type']) == 'AssetImage') {
+        if (map['image']['name'] != null) {
+          decorationImage = DecorationImage(image: AssetImage(map['image']['name']));
+        }
+      } else if ((map['image']['type']) != null &&
+          (map['image']['type']) == 'NetworkImage') {
+        if (map['image']['src'] != null) {
+          decorationImage =
+              DecorationImage(image: NetworkImage(map['image']['src']));
+        }
+      }
+    }
+
+    if (map.containsKey('shape')) {
+        boxShape = map['shape'] == 'circle'
+            ? BoxShape.circle
+            : map['shape'] == 'rectangle'
+                ? BoxShape.rectangle
+                : BoxShape.circle;
+      }
+
+      if (map.containsKey('color')) {
+        color = parseHexColor(map['color']);
+      }
+
+      if (map.containsKey('gradient')) {
+        if (map['gradient']['type'] != null && map['gradient']['type'] == 'LinearGradient') {
+          gradient = LinearGradient(
+              colors: map.containsKey(map['gradient']['gradientData']['colors'])
+                  ? _getColorsFromString(map['gradient']['gradientData']['colors'])
+                  : [parseHexColor('#4776E7'), parseHexColor('#8FA6DE')],
+              begin: map.containsKey(map['gradient']['gradientData']['begin'])
+                  ? parseAlignment(map['gradient']['gradientData']['begin'])
+                  : Alignment.topLeft,
+              end: map.containsKey(map['gradient']['gradientData']['end'])
+                  ? parseAlignment(map['gradient']['gradientData']['end'])
+                  : Alignment.bottomRight,
+              stops: map.containsKey(map['gradient']['gradientData']['stops']) ? map['gradient']['gradientData']['stops'] : [0.3, 1]);
+        }
+      }
+
+  }
+
+  if (decorationImage != null) {
+    return BoxDecoration(
+      image: decorationImage,
+    );
+  } else if (decorationImage != null && gradient != null) {
+    return BoxDecoration(
+        color: color,
+        shape: boxShape,
+        image: decorationImage,
+        gradient: gradient);
+  } else if (gradient != null && decorationImage == null) {
+    return BoxDecoration(gradient: gradient);
+  } else {
+    return BoxDecoration(
+      
+    );
+  }
 }
 
 EdgeInsetsGeometry parseEdgeInsetsGeometry(String edgeInsetsGeometryString) {

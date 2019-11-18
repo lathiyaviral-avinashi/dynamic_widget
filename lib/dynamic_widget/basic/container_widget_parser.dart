@@ -15,6 +15,9 @@ class ContainerWidgetParser extends WidgetParser {
     Color color = parseHexColor(map['color']);
     BoxConstraints constraints = parseBoxConstraints(map['constraints']);
     //TODO: decoration, foregroundDecoration and transform properties to be implemented.
+
+    BoxDecoration boxDecoration = map['decoration'] == null ? BoxDecoration() : parseBoxDecoration(map['decoration']);
+
     EdgeInsetsGeometry margin = parseEdgeInsetsGeometry(map['margin']);
     EdgeInsetsGeometry padding = parseEdgeInsetsGeometry(map['padding']);
     Map<String, dynamic> childMap = map['child'];
@@ -28,7 +31,8 @@ class ContainerWidgetParser extends WidgetParser {
     var containerWidget = Container(
       alignment: alignment,
       padding: padding,
-      color: color,
+      decoration: boxDecoration,
+      // color: color,
       margin: margin,
       width: map['width'],
       height: map['height'],

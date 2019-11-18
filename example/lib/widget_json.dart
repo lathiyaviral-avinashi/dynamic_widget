@@ -1,3 +1,21 @@
+// "decoration": {
+//       "gradient": {
+//         "type": "LinearGradient",
+//         "gradientData" : {
+//           "colors" : [
+//         "#4776E7",
+//         "#8FA6DE"
+//       ],
+//       "begin": "topLeft",
+//       "end": "bottomRight",
+//       "stops": [
+//         0.3,
+//         1
+//       ]
+//         }
+//       }
+//     },
+
 var containerJson = '''
 {
   "type": "Container",
