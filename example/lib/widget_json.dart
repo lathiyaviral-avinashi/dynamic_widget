@@ -3,20 +3,10 @@ var containerJson = '''
   "type": "background",
   "color": "#FF00FF",
   "alignment": "center",
-    "gradient" : {
-      "gradientType": "LinearGradient",
-        "gradientData" : {
-          "colors" : [
-        "#4776E7",
-        "#8FA6DE"
-      ],
-      "begin": "topLeft",
-      "end": "bottomRight",
-      "stops": [
-        0.3,
-        1
-      ]
-        }
+  "image" : {
+      "type": "AssetImage",
+      "name": "assets/background_image.png",
+      "boxFit" : "fill"
     }
 }
 
