@@ -309,7 +309,7 @@ BoxDecoration parseBoxDecoration(Map<String, dynamic> map) {
         if (map['gradient']['gradientType'] != null && map['gradient']['gradientType'] == 'LinearGradient') {
           gradient = LinearGradient(
               colors: map.containsKey(map['gradient']['gradientData']['colors'])
-                  ? _getColorsFromString(map['gradient']['gradientData']['colors'])
+                  ? getColorsFromString(map['gradient']['gradientData']['colors'])
                   : [parseHexColor('#4776E7'), parseHexColor('#8FA6DE')],
               begin: map.containsKey(map['gradient']['gradientData']['begin'])
                   ? parseAlignment(map['gradient']['gradientData']['begin'])
