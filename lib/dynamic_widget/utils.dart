@@ -256,7 +256,7 @@ BoxConstraints parseBoxConstraints(Map<String, dynamic> map) {
   );
 }
 
-List<Color> _getColorsFromString(List<String> stringColors) {
+List<Color> getColorsFromString(List<String> stringColors) {
   List<Color> colors = [];
   stringColors.forEach((stringColor) {
     final Color color = parseHexColor(stringColor);
